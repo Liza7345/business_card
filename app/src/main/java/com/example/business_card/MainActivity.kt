@@ -138,7 +138,7 @@ fun ContactRow(iconRes: Int, text: String) {
             painter = painterResource(id = iconRes),
             contentDescription = null,
             modifier = Modifier.size(24.dp),
-            tint = Color(0xFF6200EE)
+            tint = Color.Unspecified
         )
         Spacer(modifier = Modifier.width(16.dp))
         Text(
@@ -146,7 +146,10 @@ fun ContactRow(iconRes: Int, text: String) {
             fontSize = 16.sp,
             color = Color(0xFF3C3C3C),
             textAlign = TextAlign.Justify,
-            fontWeight = FontWeight.Normal
+            fontWeight = FontWeight.Normal,
+            maxLines = 1,
+            softWrap = false
+
         )
     }
 }
