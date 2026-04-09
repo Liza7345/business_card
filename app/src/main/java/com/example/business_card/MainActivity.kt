@@ -13,6 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.business_card.ui.theme.Business_cardTheme
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -20,10 +21,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.Alignment
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -52,10 +53,13 @@ class MainActivity : ComponentActivity() {
 }
 @Composable
 fun BusinessCardLayout() {
-    Column(
+    Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
+            .padding(16.dp)
+    ) {Column(
+        modifier = Modifier
+            .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
@@ -65,8 +69,8 @@ fun BusinessCardLayout() {
             painter = painterResource(id = R.drawable.anastasiz),
             contentDescription = "Фото профиля",
             modifier = Modifier
-                .size(120.dp)
-                .clip(CircleShape),
+                .size(150.dp)
+                .clip(RoundedCornerShape(16.dp)),
             contentScale = ContentScale.Crop
         )
 
@@ -83,40 +87,44 @@ fun BusinessCardLayout() {
         Spacer(modifier = Modifier.height(8.dp))
 
         Text(
-            text = "Android Developer",
+            text = "Ютуб-блогер",
             fontSize = 18.sp,
             fontWeight = FontWeight.Medium,
             color = Color(0xFF757575),
             textAlign = TextAlign.Center
         )
 
-        Spacer(modifier = Modifier.height(32.dp))
-
+        Spacer(modifier = Modifier.weight(1f))
+    }
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalAlignment = Alignment.Start
+                .align(Alignment.BottomCenter)
+                .padding(bottom = 16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            ContactRow(
-                iconRes = R.drawable.phone,
-                text = "+7 916 529 3453"
-            )
-            Spacer(modifier = Modifier.height(16.dp))
+            Column(
+                modifier = Modifier.fillMaxWidth(0.5f),
+                horizontalAlignment = Alignment.Start
+            ) {
+                ContactRow(
+                    iconRes = R.drawable.phone,
+                    text = "+7 916 529 3453"
+                )
+                Spacer(modifier = Modifier.height(12.dp))
 
-            ContactRow(
-                iconRes = R.drawable.vk_com_logo,
-                text = "@anastasiz"
-            )
-            Spacer(modifier = Modifier.height(16.dp))
+                ContactRow(
+                    iconRes = R.drawable.vk_com_logo,
+                    text = "@anastasiz"
+                )
+                Spacer(modifier = Modifier.height(12.dp))
 
-            ContactRow(
-                iconRes = R.drawable.mail,
-                text = "anastasiz@mail.ru"
-            )
+                ContactRow(
+                    iconRes = R.drawable.mail,
+                    text = "anastasiz@mail.ru"
+                )
+            }
         }
-
-        Spacer(modifier = Modifier.weight(0.5f))
     }
 }
 
