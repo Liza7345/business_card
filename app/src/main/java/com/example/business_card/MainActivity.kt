@@ -34,6 +34,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,7 +69,7 @@ fun BusinessCardLayout() {
 
         Image(
             painter = painterResource(id = R.drawable.anastasiz),
-            contentDescription = "Фото профиля",
+            contentDescription = stringResource(id = R.string.profile_image_description),
             modifier = Modifier
                 .size(150.dp)
                 .clip(RoundedCornerShape(16.dp)),
@@ -77,20 +79,20 @@ fun BusinessCardLayout() {
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
-            text = "Анастасия Бурчуладзе",
+            text = stringResource(id = R.string.profile_name),
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
-            color = Color(0xFF1E1E1E),
+            color = colorResource(id = R.color.text_primary),
             textAlign = TextAlign.Center
         )
 
         Spacer(modifier = Modifier.height(8.dp))
 
         Text(
-            text = "Ютуб-блогер",
+            text = stringResource(id = R.string.profile_title),
             fontSize = 18.sp,
             fontWeight = FontWeight.Medium,
-            color = Color(0xFF757575),
+            color = colorResource(id = R.color.text_secondary),
             textAlign = TextAlign.Center
         )
 
@@ -109,19 +111,19 @@ fun BusinessCardLayout() {
             ) {
                 ContactRow(
                     iconRes = R.drawable.phone,
-                    text = "+7 916 529 3453"
+                    text = stringResource(id = R.string.contact_phone)
                 )
                 Spacer(modifier = Modifier.height(12.dp))
 
                 ContactRow(
                     iconRes = R.drawable.vk_com_logo,
-                    text = "@anastasiz"
+                    text = stringResource(id = R.string.contact_vk)
                 )
                 Spacer(modifier = Modifier.height(12.dp))
 
                 ContactRow(
                     iconRes = R.drawable.mail,
-                    text = "anastasiz@mail.ru"
+                    text = stringResource(id = R.string.contact_email)
                 )
             }
         }
@@ -144,7 +146,7 @@ fun ContactRow(iconRes: Int, text: String) {
         Text(
             text = text,
             fontSize = 16.sp,
-            color = Color(0xFF3C3C3C),
+            color = colorResource(id = R.color.text_tertiary),
             textAlign = TextAlign.Justify,
             fontWeight = FontWeight.Normal,
             maxLines = 1,

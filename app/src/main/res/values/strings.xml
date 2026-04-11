@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Business_card</string>
+    <string name="profile_name">Анастасия Бурчуладзе</string>
+    <string name="profile_title">Ютуб-блогер</string>
+    <string name="contact_phone">+7 916 529 3453</string>
+    <string name="contact_vk">\@anastasiz</string>
+    <string name="contact_email">\anastasiz@mail.ru</string>
+    <string name="profile_image_description">Фото профиля</string>
 </resources>
